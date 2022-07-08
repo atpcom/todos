@@ -17,6 +17,8 @@ abstract class _Todo with Store {
   @observable
   String description = '';
 
+  DateTime create = DateTime.now();
+
   @observable
   bool done = false;
 }

@@ -165,6 +165,17 @@ mixin _$TodoList on _TodoList, Store {
   }
 
   @override
+  void reorder(int oldPos, int newPos) {
+    final _$actionInfo =
+        _$_TodoListActionController.startAction(name: '_TodoList.reorder');
+    try {
+      return super.reorder(oldPos, newPos);
+    } finally {
+      _$_TodoListActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 todos: ${todos},

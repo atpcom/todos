@@ -93,6 +93,13 @@ abstract class _TodoList with Store {
       todo.done = true;
     }
   }
+
+  @action
+  void reorder(int oldPos, int newPos) {
+    if (newPos > oldPos) newPos -= 1;
+    final todo = todos.removeAt(oldPos);
+    todos.insert(newPos, todo);
+  }
 }
 
 class ObservableTodoListConverter extends JsonConverter<ObservableList<Todo>,

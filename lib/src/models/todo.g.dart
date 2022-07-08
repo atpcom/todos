@@ -8,10 +8,13 @@ part of 'todo.dart';
 
 Todo _$TodoFromJson(Map<String, dynamic> json) => Todo(
       json['description'] as String,
-    )..done = json['done'] as bool;
+    )
+      ..create = DateTime.parse(json['create'] as String)
+      ..done = json['done'] as bool;
 
 Map<String, dynamic> _$TodoToJson(Todo instance) => <String, dynamic>{
       'description': instance.description,
+      'create': instance.create.toIso8601String(),
       'done': instance.done,
     };
 
